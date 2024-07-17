@@ -5,6 +5,18 @@ $username = "root";
 $password = "12345";
 $database = "student_system";
 
+//adding session
+if(!isset($_SESSION)){
+    session_start();
+
+}
+
+if(isset($_SESSION['UserLogin'])){
+    echo "Welcome ".$_SESSION['UserLogin'];
+}else {
+    echo "Welcome Guest";
+}
+
 include_once("../connections/connections.php");
 
 $con = connection();
@@ -28,10 +40,17 @@ $row = $students->fetch_assoc();
     <h1>Student Management System</h1>
     <br />
     <br />
+    <?php if(isset($_SESSION['UserLogin'])) {?>
+    <a href="logout.php">Logout</a>
+    <?php } else { ?>
+
+        <a href="login.php">Login</a>
+    <?php } ?>
     <a href="add.php">Add New</a>
     <table>
         <thead>
         <tr>
+            <th></th>
             <th>First Name</th>
             <th>Last Name</th>
         </tr>
@@ -39,6 +58,7 @@ $row = $students->fetch_assoc();
         <tbody>
         <?php do { ?>
         <tr>
+            <td><a href="details.php?ID=<?php echo $row['ID'] ?>">view</a></td>
             <td><?php echo $row['first_name']; ?></td>
             <td><?php echo $row['last_name']; ?></td>
         </tr>
