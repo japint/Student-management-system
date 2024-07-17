@@ -2,7 +2,7 @@
 //connect to the database, login
 $host = "localhost";
 $username = "root";
-$password = "!EUVL9bG]/IHVUKZ";
+$password = "12345";
 $database = "student_system";
 
 $con = new mysqli($host, $username, $password, $database);
