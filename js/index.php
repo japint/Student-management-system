@@ -5,21 +5,13 @@ $username = "root";
 $password = "12345";
 $database = "student_system";
 
-$con = new mysqli($host, $username, $password, $database);
+include_once("../connections/connections.php");
 
-if ($con->connect_error){
-    echo $con->connect_error;
-}
+$con = connection();
 
-$sql = "SELECT * FROM student_list";
+$sql = "SELECT * FROM student_list ORDER BY id DESC";
 $students = $con->query($sql) or die ($con->error);
 $row = $students->fetch_assoc();
-
-// do{
-
-//     echo $row['first_name']." ".$row['last_name']. "<br/>";
-
-// }while($row = $students->fetch_assoc());
 
 ?>
 
@@ -29,38 +21,14 @@ $row = $students->fetch_assoc();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Management System</title>
-    <style>
+    <link rel="stylesheet" href="../css/style.css">
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        table {
-            border: 1px solid black;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 8px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-    </style>
 </head>
 <body>
     <h1>Student Management System</h1>
-    <br>
-    <br>
+    <br />
+    <br />
+    <a href="add.php">Add New</a>
     <table>
         <thead>
         <tr>
