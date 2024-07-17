@@ -1,1 +1,1 @@
-Student Management System PHP
+Student Management System PHP and MySQL database
