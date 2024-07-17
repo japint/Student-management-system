@@ -1,4 +1,9 @@
 <?php
+//connect to the database, login
+$host = "localhost";
+$username = "root";
+$password = "12345";
+$database = "student_system";
 
 //adding session
 if(!isset($_SESSION)){
