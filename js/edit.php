@@ -1,6 +1,7 @@
 <?php
 
 include_once("../connections/connections.php");
+
 $con = connection();
 
 // Check if ID is set in the URL
