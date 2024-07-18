@@ -24,9 +24,9 @@ if(isset($_POST['login'])){
     if($total > 0){
         $_SESSION['UserLogin'] = $row['username'];
         $_SESSION['Access'] = $row['access'];
-        // to redirect, avoining resubmission
+        // to redirect, avoid resubmission
         header("Location: index.php");
-        exit(); 
+        exit();  
     } else {
         echo "No user found.";
     }
